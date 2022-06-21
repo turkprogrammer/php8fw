@@ -2,10 +2,13 @@
 
 namespace app\controllers;
 
-class MainController
+
+use php8fw\Controller;
+
+class MainController extends Controller
 {
     public function indexAction()
     {
-        echo __METHOD__;;
+       var_dump($this->model);
     }
 }
