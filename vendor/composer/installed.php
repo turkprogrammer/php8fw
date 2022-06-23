@@ -28,6 +28,15 @@
             'reference' => '10dcfce151b967d20fde1b34ae6640712c3891bc',
             'dev_requirement' => true,
         ),
+        'laravel/pint' => array(
+            'pretty_version' => 'v0.1.6',
+            'version' => '0.1.6.0',
+            'type' => 'project',
+            'install_path' => __DIR__ . '/../laravel/pint',
+            'aliases' => array(),
+            'reference' => '8b933379724ca1be210c0f37a6142a9b354d2abf',
+            'dev_requirement' => true,
+        ),
         'myclabs/deep-copy' => array(
             'pretty_version' => '1.11.0',
             'version' => '1.11.0.0',

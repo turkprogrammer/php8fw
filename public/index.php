@@ -20,4 +20,3 @@ new \php8fw\App();
 //throw new Exception('Error loading', 404);
 //echo $ter ;
 //var_dump(Router::getRoute());
-

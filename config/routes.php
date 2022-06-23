@@ -8,4 +8,3 @@ Router::add('^admin/(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$', ['admin_pre
 Router::add('^$', ['controller' => 'Main', 'action' => 'index']);
 //набор символов с ключем контроллер и экшен
 Router::add('^(?P<controller>[a-z-]+)/(?P<action>[a-z-]+)/?$');
-

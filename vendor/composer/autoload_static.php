@@ -43,6 +43,12 @@ class ComposerStaticInit6e1f6299ff01b8125c5969e510214721
         array (
             'Doctrine\\Instantiator\\' => 22,
             'DeepCopy\\' => 9,
+            'Database\\Seeders\\' => 17,
+            'Database\\Factories\\' => 19,
+        ),
+        'A' => 
+        array (
+            'App\\' => 4,
         ),
     );
 
@@ -92,6 +98,18 @@ class ComposerStaticInit6e1f6299ff01b8125c5969e510214721
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
+        ),
+        'Database\\Seeders\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel/pint/database/seeders',
+        ),
+        'Database\\Factories\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel/pint/database/factories',
+        ),
+        'App\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel/pint/app',
         ),
     );
 
