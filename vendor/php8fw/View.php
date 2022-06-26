@@ -1,0 +1,72 @@
+<?php
+
+namespace php8fw;
+
+class View
+{
+    /**
+     * @var string
+     */
+    public string $content = '';
+
+    /**
+     * @param $route
+     * @param $layout
+     * @param $view
+     * @param $meta
+     */
+    public function __construct(
+        public $route,
+        public $layout = '',
+        public $view = '',
+        public $meta = [],
+    )
+    {
+        if (false !== $this->layout) {
+            $this->layout = $this->layout ?: LAYOUT;
+        }
+    }
+
+    /**
+     * @param $data
+     * @return void
+     * @throws \Exception
+     */
+    public function render($data)
+    {
+        if (is_array($data)) {
+            extract($data);
+        }
+        /** admin\ =>admin/ */
+        $prefix = str_replace('\\', '/', $this->route['admin_prefix']);
+        $view_file = APP . "/views/{$prefix}{$this->route['controller']}/{$this->view}.php";
+        //var_dump($view_file);
+        if (is_file($view_file)) {
+            ob_start();
+            require_once $view_file;
+            $this->content = ob_get_clean();
+        } else {
+            throw new \Exception("Не найден вид {$view_file}", 500);
+        }
+
+        if (false !== $this->layout) {
+            $layout_file = APP . "/views/layouts/{$this->layout}.php";
+            if (is_file($layout_file)) {
+                require_once $layout_file;
+            } else {
+                throw new \Exception("Не найден шаблон {$layout_file}", 500);
+            }
+        }
+    }
+
+    /**
+     * @return string
+     */
+    public function getMeta()
+    {
+        $out = '<title>' . h($this->meta['title']) . '</title>' . PHP_EOL;
+        $out .= '<meta name="description" content="' . h($this->meta['description']) . '">' . PHP_EOL;
+        $out .= '<meta name="keywords" content="' . h($this->meta['keywords']) . '">' . PHP_EOL;
+        return $out;
+    }
+}

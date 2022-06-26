@@ -32,7 +32,7 @@ abstract class Controller
 
     public function __construct(public $route = [])
     {
-
+        //dd($this->route);
     }
 
     /**
@@ -48,10 +48,12 @@ abstract class Controller
 
     /**
      * @return void
+     * @throws \Exception
      */
     public function getView()
     {
         $this->view = $this->view ?: $this->route['action'];
+        (new View($this->route, $this->layout, $this->view, $this->meta))->render($this->data);
 
     }
 

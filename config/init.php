@@ -39,7 +39,7 @@ define('CONFIG', ROOT.'/config');
 /**
  * путь к templates
  */
-define('LAYOUTS', 'templates');
+define('LAYOUT', 'template');
 /**
  * путь к главной странице admin
  */
