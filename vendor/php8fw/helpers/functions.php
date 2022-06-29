@@ -12,3 +12,12 @@ function debug($data, $die = false)
         die;
     }
 }
+
+/**
+ * @param $str
+ * @return string
+ */
+function html($str)
+{
+    return htmlspecialchars($str);
+}

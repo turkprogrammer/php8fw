@@ -13,7 +13,15 @@ class MainController extends Controller
 
     public function indexAction()
     {
-        //var_dump($this->model);
-        //$this->layout = 'test';
+        $this->setMeta('Homepage', 'Description', 'Keyword');
+     /*   $this->set(
+            [
+                'test' => 'TESTING'
+            ]
+        )*/;
+
+        $names = ['Robert', 'John', 'Mary'];
+        //$this->set(['names' => $names]);
+        $this->set(compact('names'));
     }
 }

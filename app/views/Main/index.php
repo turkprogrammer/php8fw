@@ -1,3 +1,3 @@
 <?php
-
-echo __FILE__;
+/** @var $names */
+dd($names);
