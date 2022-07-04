@@ -19,6 +19,7 @@ use php8fw\View;
             <p style="text-align: center; font-size: 30px; margin: 0; padding: 1.5em 0;"><?= $this->content ?></p>
         </main>
     </div>
+    <?= $this->getDbLogs() ?>
 </div>
 </body>
 </html>
