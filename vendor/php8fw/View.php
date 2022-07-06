@@ -2,6 +2,8 @@
 
 namespace php8fw;
 
+use RedBeanPHP\R;
+
 class View
 {
     /**
@@ -68,5 +70,37 @@ class View
         $out .= '<meta name="description" content="' . htmlspecialchars($this->meta['description']) . '">' . PHP_EOL;
         $out .= '<meta name="keywords" content="' . htmlspecialchars($this->meta['keywords']) . '">' . PHP_EOL;
         return $out;
+    }
+
+    /**
+     * @return void
+     */
+    public function getDbLogs()
+    {
+        if (DEBUG) {
+            $logs = R::getDatabaseAdapter()
+                ->getDatabase()
+                ->getLogger();
+            $logs = array_merge($logs->grep( 'SELECT' ), $logs->grep( 'select' ), $logs->grep( 'INSERT' ), $logs->grep( 'UPDATE' ), $logs->grep( 'DELETE' ));
+            dd($logs);
+        }
+    }
+
+    /**
+     * @param $file
+     * @param $data
+     * @return void
+     */
+    public function getPart($file, $data = null)
+    {
+        if (is_array($data)) {
+            extract($data);
+        }
+        $file = APP . "/views/{$file}.php";
+        if (is_file($file)) {
+            require $file;
+        } else {
+            echo "File {$file} not found...";
+        }
     }
 }

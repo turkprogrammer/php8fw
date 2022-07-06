@@ -17,6 +17,7 @@
         "phpstan/phpstan": "^1.7"
     },
     "require": {
-        "symfony/var-dumper": "^6.1"
+        "symfony/var-dumper": "^6.1",
+        "gabordemooij/redbean": "^v5.7.1"
     }
 }
