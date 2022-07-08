@@ -5,6 +5,11 @@
             "app\\": "app"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "test\\": "tests"
+        }
+    },
     "authors": [
         {
             "name": "TurkProgrammer",

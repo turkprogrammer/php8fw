@@ -14,6 +14,9 @@ class MainController extends Controller
      */
     //public string $layout = 'test2';
 
+    /**
+     * @return void
+     */
     public function indexAction()
     {
         $this->setMeta('Homepage', 'Description', 'Keyword');
